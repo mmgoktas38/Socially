@@ -53,12 +53,9 @@ public class IntroViewPagerAdapter extends PagerAdapter {
 
         ImageView imageViewIntro = view.findViewById(R.id.imageViewIntro);
         ImageView imageViewButtonNext = view.findViewById(R.id.imageViewButtonNext);
-        TextView textViewTitle = view.findViewById(R.id.textViewTitle);
 
         imageViewIntro.setImageResource(screenItemList.get(position).getImageIntro());
         imageViewButtonNext.setImageResource(screenItemList.get(position).getImageButtonNext());
-        textViewTitle.setText(screenItemList.get(position).getTitle());
-
 
         container.addView(view);
 

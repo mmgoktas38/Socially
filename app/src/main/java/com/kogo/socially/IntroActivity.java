@@ -2,7 +2,11 @@ package com.kogo.socially;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.kogo.socially.adapter.IntroViewPagerAdapter;
@@ -18,6 +22,7 @@ public class IntroActivity extends FragmentActivity  {
     private IntroViewPagerAdapter introViewPagerAdapter;
     private int position;
     private List<ScreenItem> screenList = new ArrayList<>();
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +30,13 @@ public class IntroActivity extends FragmentActivity  {
         introBinding = ActivityIntroBinding.inflate(getLayoutInflater());
         setContentView(introBinding.getRoot());
 
+        if (restorePrefData()){
+            Toast.makeText(this, "diğer sayfa", Toast.LENGTH_LONG).show();
+        }
 
-        screenList.add(new ScreenItem("Welcome to\nSocially", R.drawable.hero_img, R.drawable.button_next));
-        screenList.add(new ScreenItem("Welcome to\nSocially", R.drawable.hero_img2, R.drawable.button_next2));
-        screenList.add(new ScreenItem("Welcome to\nSocially", R.drawable.hero_img2, R.drawable.button_next));
+        screenList.add(new ScreenItem(R.drawable.hero_img, R.drawable.button_next));
+        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.button_next2));
+        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.button_next));
         setIntroViewPagerAdapter(screenList);
 
         position = introBinding.viewPager.getCurrentItem();
@@ -38,6 +46,13 @@ public class IntroActivity extends FragmentActivity  {
                 position++;
                 introBinding.viewPager.setCurrentItem(position);
             }
+
+            if (position == screenList.size()){
+                savePrefData();
+            }
+            else {
+            }
+
         });
 
         introBinding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -49,6 +64,15 @@ public class IntroActivity extends FragmentActivity  {
                 }
                 else{
                     introBinding.textViewNext.setText("Next");
+                }
+
+                if (position == 1){
+                    introBinding.textViewNext.setTextColor(Color.BLACK);
+                    introBinding.imageViewNextIcon.setImageResource(R.drawable.icon_next_black);
+                }
+                else{
+                    introBinding.textViewNext.setTextColor(Color.WHITE);
+                    introBinding.imageViewNextIcon.setImageResource(R.drawable.icon_next_white);
                 }
             }
 
@@ -70,6 +94,20 @@ public class IntroActivity extends FragmentActivity  {
         introBinding.viewPager.setAdapter(introViewPagerAdapter);
         introBinding.tabLayout.setupWithViewPager(introBinding.viewPager);
 
+    }
+
+    private void savePrefData(){
+
+        sharedPreferences = getApplicationContext().getSharedPreferences("onboardingpref",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isFirstTimeLaunch",true);
+        editor.apply();
+
+    }
+
+    private Boolean restorePrefData(){
+        sharedPreferences = getApplicationContext().getSharedPreferences("onboardingpref", MODE_PRIVATE);
+        return sharedPreferences.getBoolean("isFirstTimeLaunch", false);
     }
 
 }

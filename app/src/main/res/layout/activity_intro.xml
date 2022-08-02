@@ -22,8 +22,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_marginBottom="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="74dp"
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -31,12 +31,23 @@
             android:id="@+id/textViewNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="49dp"
+            android:layout_marginStart="247dp"
+            android:fontFamily="@font/poppins"
             android:text="Next"
             android:textColor="@color/white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewNextIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/icon_next_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textViewNext"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
