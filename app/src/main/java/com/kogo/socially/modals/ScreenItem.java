@@ -4,13 +4,23 @@ public class ScreenItem {
 
     private String title;
     private int imageIntro;
+    private int imageButtonNext;
 
     public ScreenItem() {
     }
 
-    public ScreenItem(String title, int imageIntro) {
+    public ScreenItem(String title, int imageIntro, int imageButtonNext) {
         this.title = title;
         this.imageIntro = imageIntro;
+        this.imageButtonNext = imageButtonNext;
+    }
+
+    public int getImageButtonNext() {
+        return imageButtonNext;
+    }
+
+    public void setImageButtonNext(int imageButtonNext) {
+        this.imageButtonNext = imageButtonNext;
     }
 
     public String getTitle() {

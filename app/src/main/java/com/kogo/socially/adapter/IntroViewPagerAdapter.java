@@ -1,6 +1,7 @@
 package com.kogo.socially.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,18 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.lifecycle.Lifecycle;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.adapter.FragmentViewHolder;
 
 import com.kogo.socially.R;
-import com.kogo.socially.ScreenSlidePageFragment;
 import com.kogo.socially.modals.ScreenItem;
 
 import java.util.List;
@@ -60,10 +52,13 @@ public class IntroViewPagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(mContext).inflate(R.layout.layout_screen,null);
 
         ImageView imageViewIntro = view.findViewById(R.id.imageViewIntro);
+        ImageView imageViewButtonNext = view.findViewById(R.id.imageViewButtonNext);
         TextView textViewTitle = view.findViewById(R.id.textViewTitle);
 
         imageViewIntro.setImageResource(screenItemList.get(position).getImageIntro());
+        imageViewButtonNext.setImageResource(screenItemList.get(position).getImageButtonNext());
         textViewTitle.setText(screenItemList.get(position).getTitle());
+
 
         container.addView(view);
 
