@@ -1,7 +1,8 @@
-package com.kogo.socially;
+package com.kogo.socially.activity;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+import com.kogo.socially.R;
 import com.kogo.socially.adapter.IntroViewPagerAdapter;
 import com.kogo.socially.databinding.ActivityIntroBinding;
 import com.kogo.socially.modals.ScreenItem;
@@ -31,7 +33,7 @@ public class IntroActivity extends FragmentActivity  {
         setContentView(introBinding.getRoot());
 
         if (restorePrefData()){
-            Toast.makeText(this, "diğer sayfa", Toast.LENGTH_LONG).show();
+            goToMainActivity();
         }
 
         screenList.add(new ScreenItem(R.drawable.hero_img, R.drawable.button_next));
@@ -41,19 +43,8 @@ public class IntroActivity extends FragmentActivity  {
 
         position = introBinding.viewPager.getCurrentItem();
 
-        introBinding.textViewNext.setOnClickListener(view -> {
-            if (position < screenList.size()){
-                position++;
-                introBinding.viewPager.setCurrentItem(position);
-            }
-
-            if (position == screenList.size()){
-                savePrefData();
-            }
-            else {
-            }
-
-        });
+        introBinding.textViewNext.setOnClickListener(view -> { nextSplash();  });
+        introBinding.imageViewNextIcon.setOnClickListener(view -> { nextSplash(); });
 
         introBinding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -108,6 +99,24 @@ public class IntroActivity extends FragmentActivity  {
     private Boolean restorePrefData(){
         sharedPreferences = getApplicationContext().getSharedPreferences("onboardingpref", MODE_PRIVATE);
         return sharedPreferences.getBoolean("isFirstTimeLaunch", false);
+    }
+
+    private void nextSplash(){
+        if (position < screenList.size()){
+            position++;
+            introBinding.viewPager.setCurrentItem(position);
+        }
+
+        if (position == screenList.size()){
+            savePrefData();
+        }
+        else {
+        }
+    }
+
+    public void goToMainActivity(){
+        Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
