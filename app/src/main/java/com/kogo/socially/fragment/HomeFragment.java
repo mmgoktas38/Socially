@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kogo.socially.R;
+import com.kogo.socially.adapter.PostAdapter;
 import com.kogo.socially.adapter.StoryAdapter;
 import com.kogo.socially.databinding.FragmentHomeBinding;
+import com.kogo.socially.modals.Post;
 import com.kogo.socially.modals.Story;
 
 import java.util.ArrayList;
@@ -22,6 +24,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding homeBinding;
     private List<Story> storyList = new ArrayList<>();
     private StoryAdapter storyAdapter;
+    private List<Post> postList = new ArrayList<>();
+    private PostAdapter postAdapter;
 
 
     @Override
@@ -30,14 +34,16 @@ public class HomeFragment extends Fragment {
 
         homeBinding = FragmentHomeBinding.inflate(inflater, container, false);
 
-        buildRecyclerView();
+        buildStoryRecyclerView();
+        buildPostRecyclerView();
 
         return homeBinding.getRoot();
     }
 
-    private void buildRecyclerView(){
+    private void buildStoryRecyclerView(){
         storyList.clear();
 
+        storyList.add(new Story(String.valueOf(R.drawable.button_add_story)));
         storyList.add(new Story(String.valueOf(R.drawable.ellipse_4)));
         storyList.add(new Story(String.valueOf(R.drawable.ellipse_5)));
         storyList.add(new Story(String.valueOf(R.drawable.ellipse_6)));
@@ -49,6 +55,21 @@ public class HomeFragment extends Fragment {
         storyAdapter = new StoryAdapter(getContext(), storyList);
         homeBinding.recyclerViewStory.setAdapter(storyAdapter);
         storyAdapter.notifyDataSetChanged();
+
+    }
+
+    private void buildPostRecyclerView(){
+        postList.clear();
+
+        postList.add(new Post("Dennis Reynolds", "2 hrs ago", String.valueOf(R.drawable.profile_img), 5.2, 1.1, 362, String.valueOf(R.drawable.post_img)));
+        postList.add(new Post("Charlie Kelly", "4 hrs ago", String.valueOf(R.drawable.profile_img2), 6.1, 3.2, 656, String.valueOf(R.drawable.post_img2)));
+
+        homeBinding.recyclerViewPost.setHasFixedSize(true);
+        homeBinding.recyclerViewPost.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+        postAdapter = null;
+        postAdapter = new PostAdapter(getContext(), postList);
+        homeBinding.recyclerViewPost.setAdapter(postAdapter);
+        postAdapter.notifyDataSetChanged();
 
     }
 }
