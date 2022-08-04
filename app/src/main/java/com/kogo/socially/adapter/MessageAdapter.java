@@ -1,15 +1,18 @@
 package com.kogo.socially.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kogo.socially.R;
+import com.kogo.socially.activity.MessageActivity;
 import com.kogo.socially.modals.Message;
 
 import java.util.ArrayList;
@@ -42,6 +45,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.CardView
         holder.imageViewCircleProfilePhoto.setImageResource(mContext.getResources().getIdentifier(aMessage.getProfileImage(),"drawable",mContext.getPackageName()));
         holder.textViewUsername.setText(aMessage.getNameSurname());
         holder.textViewMessage.setText(aMessage.getMessage());
+        holder.cardViewWriteMessage.setOnClickListener(view -> {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                intent.putExtra("name", aMessage.getNameSurname());
+                intent.putExtra("photo", aMessage.getProfileImage());
+                mContext.startActivity(intent);
+        });
 
     }
 
@@ -60,9 +69,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.CardView
 
         private CircleImageView imageViewCircleProfilePhoto;
         private TextView textViewUsername, textViewMessage;
+        private CardView cardViewWriteMessage;
+
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            cardViewWriteMessage = itemView.findViewById(R.id.cardViewWriteMessage);
             imageViewCircleProfilePhoto = itemView.findViewById(R.id.imageViewCircleProfilePhotoMessageA);
             textViewUsername = itemView.findViewById(R.id.textViewNameSurname);
             textViewMessage = itemView.findViewById(R.id.textViewMessage);

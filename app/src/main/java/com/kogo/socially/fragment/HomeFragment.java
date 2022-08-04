@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kogo.socially.R;
 import com.kogo.socially.adapter.PostAdapter;
 import com.kogo.socially.adapter.StoryAdapter;
@@ -34,6 +35,9 @@ public class HomeFragment extends Fragment {
 
         homeBinding = FragmentHomeBinding.inflate(inflater, container, false);
 
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottomNavigationView);
+        navBar.setVisibility(View.VISIBLE);
+
         buildStoryRecyclerView();
         buildPostRecyclerView();
 
@@ -43,7 +47,7 @@ public class HomeFragment extends Fragment {
     private void buildStoryRecyclerView(){
         storyList.clear();
 
-        storyList.add(new Story(String.valueOf(R.drawable.button_add_story)));
+        storyList.add(new Story(String.valueOf(R.drawable.aaad)));
         storyList.add(new Story(String.valueOf(R.drawable.ellipse_4)));
         storyList.add(new Story(String.valueOf(R.drawable.ellipse_5)));
         storyList.add(new Story(String.valueOf(R.drawable.ellipse_6)));

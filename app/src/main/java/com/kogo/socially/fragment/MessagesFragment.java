@@ -3,14 +3,20 @@ package com.kogo.socially.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kogo.socially.R;
@@ -38,13 +44,34 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         messagesBinding = FragmentMessagesBinding.inflate(inflater,container,false);
-
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottomNavigationView);
-        // navBar.setVisibility(View.INVISIBLE);
+        if(navBar != null){
+            navBar.setVisibility(View.GONE);
+        }
 
         buildMessageRecyclerView();
 
-        messagesBinding.imageViewMessageToHome.setOnClickListener(view -> {  });
+       /* messagesBinding.recyclerViewMessages.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 && navBar.isShown()) {
+                    navBar.setVisibility(View.GONE);
+                } else if (dy < 0 ) {
+                    navBar.setVisibility(View.VISIBLE);
+
+                }
+            }
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });*/
+
+        messagesBinding.imageViewMessageToHome.setOnClickListener(view -> {
+        //    goMessagesToHome();
+        });
+        messagesBinding.cLayoutWriteMessage.setOnClickListener(view -> { Log.e("here", "here"); });
 
         messagesBinding.editTextTextPersonName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -100,5 +127,15 @@ public class MessagesFragment extends Fragment {
             messageAdapter.filterList(filteredlist);
         }
     }
+
+    public void goMessagesToHome(){
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.navHostFragment, homeFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
 
 }

@@ -36,6 +36,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.CardViewHold
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         Story aStory = storyList.get(position);
 
+        if (position == 0){
+            holder.imageViewCircleStrory.setBorderWidth(0);
+        }
         holder.imageViewCircleStrory.setImageResource(mContext.getResources().getIdentifier(storyList.get(position).getStoryImage(),"drawable",mContext.getPackageName()));
 
     }

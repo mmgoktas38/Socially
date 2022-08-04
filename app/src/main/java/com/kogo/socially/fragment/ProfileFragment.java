@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kogo.socially.R;
 import com.kogo.socially.adapter.ProfilePostAdapter;
 import com.kogo.socially.adapter.StoryAdapter;
@@ -35,6 +36,9 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         profileBinding = FragmentProfileBinding.inflate(inflater, container, false);
+
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottomNavigationView);
+        navBar.setVisibility(View.VISIBLE);
 
         buildStoryRecyclerView();
 

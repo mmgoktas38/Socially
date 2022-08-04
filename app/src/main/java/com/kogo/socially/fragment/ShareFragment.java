@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kogo.socially.R;
 
 
@@ -17,6 +18,8 @@ public class ShareFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        BottomNavigationView navBar = getActivity().findViewById(R.id.bottomNavigationView);
+        navBar.setVisibility(View.VISIBLE);
         return inflater.inflate(R.layout.fragment_share, container, false);
     }
 }

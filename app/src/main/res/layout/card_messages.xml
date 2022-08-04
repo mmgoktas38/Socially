@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewMessage"
+        android:id="@+id/cardViewWriteMessage"
         android:layout_width="328dp"
         android:layout_height="103dp"
         android:layout_marginStart="1dp"

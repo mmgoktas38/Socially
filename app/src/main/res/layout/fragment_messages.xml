@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.MessagesFragment"
-    android:background="@drawable/message_back">
+    android:background="@drawable/message_back"
+    android:id="@+id/fragmentMessage">
 
     <ImageView
         android:id="@+id/imageViewMessageToHome"
