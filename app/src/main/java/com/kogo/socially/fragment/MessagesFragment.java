@@ -44,14 +44,15 @@ public class MessagesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         messagesBinding = FragmentMessagesBinding.inflate(inflater,container,false);
+
         BottomNavigationView navBar = getActivity().findViewById(R.id.bottomNavigationView);
         if(navBar != null){
-            navBar.setVisibility(View.GONE);
+          //  navBar.setVisibility(View.GONE);
         }
 
         buildMessageRecyclerView();
 
-       /* messagesBinding.recyclerViewMessages.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        messagesBinding.recyclerViewMessages.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (dy > 0 && navBar.isShown()) {
@@ -66,7 +67,7 @@ public class MessagesFragment extends Fragment {
 
                 super.onScrollStateChanged(recyclerView, newState);
             }
-        });*/
+        });
 
         messagesBinding.imageViewMessageToHome.setOnClickListener(view -> {
         //    goMessagesToHome();
