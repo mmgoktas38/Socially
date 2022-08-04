@@ -51,7 +51,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.CardViewHold
 
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageViewCircleStrory = itemView.findViewById(R.id.imageViewCircleStrory);
+            imageViewCircleStrory = itemView.findViewById(R.id.imageViewCircleProfilePhotoMessageA);
         }
 
     }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMessage"
+        android:layout_width="328dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="#99FFFFFF"
+        app:cardCornerRadius="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cLayoutMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewCircleProfilePhotoMessageA"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="17dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ellipse_4"
+                app:civ_border_color="#000000"
+                app:civ_border_width="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewNameSurname"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/poppins"
+                android:text="Malena Taudi"
+                android:textColor="@color/black"
+                android:textSize="12.8sp"
+                app:layout_constraintStart_toEndOf="@+id/imageViewCircleProfilePhotoMessageA"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewMessage"
+                android:layout_width="188dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="9dp"
+                android:fontFamily="@font/poppins"
+                android:text="Hey, how's it goin?"
+                android:textColor="#656565"
+                android:textSize="12.8sp"
+                app:layout_constraintStart_toStartOf="@+id/textViewNameSurname"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameSurname" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

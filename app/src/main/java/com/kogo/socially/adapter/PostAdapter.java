@@ -64,8 +64,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.CardViewHolder
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageViewCircleProfileImage = itemView.findViewById(R.id.imageViewCircleProfileImage);
-            textViewUsername = itemView.findViewById(R.id.textViewUsername);
+            imageViewCircleProfileImage = itemView.findViewById(R.id.imageViewCircleProfilePhotoMessageA);
+            textViewUsername = itemView.findViewById(R.id.textViewNameSurname);
             textViewSharingTime = itemView.findViewById(R.id.textViewSharingTime);
             textViewLikesCount = itemView.findViewById(R.id.textViewLikesCount);
             textViewCommentsCount = itemView.findViewById(R.id.textViewCommentsCount);

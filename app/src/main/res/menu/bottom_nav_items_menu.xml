@@ -4,10 +4,10 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/home_icon" />
+        android:icon="@drawable/home_ii" />
     <item
         android:id="@+id/messagesFragment"
-        android:icon="@drawable/messages_icon" />
+        android:icon="@drawable/messages_i" />
     <item
         android:id="@+id/shareFragment"
         android:icon="@drawable/share_icon" />
@@ -16,5 +16,5 @@
         android:icon="@drawable/favorites_icon" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/person_icon" />
+        android:icon="@drawable/person_i" />
 </menu>
