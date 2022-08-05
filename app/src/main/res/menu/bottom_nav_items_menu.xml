@@ -4,17 +4,17 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/home_ii" />
+        android:icon="@drawable/icon_homee" />
     <item
         android:id="@+id/messagesFragment"
-        android:icon="@drawable/messages_i" />
+        android:icon="@drawable/icon_chat" />
     <item
         android:id="@+id/shareFragment"
-        android:icon="@drawable/share_icon" />
+        android:icon="@drawable/icon_addd" />
     <item
         android:id="@+id/favoritesFragment"
-        android:icon="@drawable/favorites_icon" />
+        android:icon="@drawable/icon_favoritee" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/person_i" />
+        android:icon="@drawable/icon_personn" />
 </menu>
