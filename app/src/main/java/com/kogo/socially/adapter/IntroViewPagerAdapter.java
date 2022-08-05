@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.kogo.socially.R;
@@ -52,10 +53,10 @@ public class IntroViewPagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(mContext).inflate(R.layout.layout_screen,null);
 
         ImageView imageViewIntro = view.findViewById(R.id.imageViewIntro);
-        ImageView imageViewButtonNext = view.findViewById(R.id.imageViewButtonNext);
+        ImageView imageViewNextColor = view.findViewById(R.id.imageViewNextColor);
 
         imageViewIntro.setImageResource(screenItemList.get(position).getImageIntro());
-        imageViewButtonNext.setImageResource(screenItemList.get(position).getImageButtonNext());
+        imageViewNextColor.setImageResource(screenItemList.get(position).getImageButtonNext());
 
         container.addView(view);
 

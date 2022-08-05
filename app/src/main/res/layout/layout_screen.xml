@@ -34,16 +34,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle2"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageViewButtonNext"
-        android:layout_width="366dp"
-        android:layout_height="366dp"
-        android:layout_marginStart="109dp"
-        android:layout_marginTop="45dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewIntro"
-        tools:srcCompat="@drawable/button_next" />
-
     <TextView
         android:id="@+id/textViewTitle2"
         android:layout_width="wrap_content"
@@ -57,5 +47,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <ImageView
+        android:id="@+id/imageViewNextColor"
+        android:layout_width="366dp"
+        android:layout_height="366dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginBottom="-97dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/black_next" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

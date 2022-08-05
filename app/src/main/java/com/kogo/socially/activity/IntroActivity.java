@@ -36,9 +36,9 @@ public class IntroActivity extends FragmentActivity  {
             goToMainActivity();
         }
 
-        screenList.add(new ScreenItem(R.drawable.hero_img, R.drawable.button_next));
-        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.button_next2));
-        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.button_next));
+        screenList.add(new ScreenItem(R.drawable.hero_img, R.drawable.black_next));
+        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.button_next_green));
+        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.black_next));
         setIntroViewPagerAdapter(screenList);
 
         position = introBinding.viewPager.getCurrentItem();
@@ -109,6 +109,7 @@ public class IntroActivity extends FragmentActivity  {
 
         if (position == screenList.size()){
             savePrefData();
+            goToMainActivity();
         }
         else {
         }
