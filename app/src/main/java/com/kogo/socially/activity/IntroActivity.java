@@ -36,15 +36,19 @@ public class IntroActivity extends FragmentActivity  {
             goToMainActivity();
         }
 
-        screenList.add(new ScreenItem(R.drawable.hero_img, R.drawable.black_next));
-        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.button_next_green));
-        screenList.add(new ScreenItem(R.drawable.hero_img2, R.drawable.black_next));
+        screenList.add(new ScreenItem(R.drawable.hero_img));
+        screenList.add(new ScreenItem(R.drawable.hero_img2));
+        screenList.add(new ScreenItem(R.drawable.hero_img2));
         setIntroViewPagerAdapter(screenList);
 
         position = introBinding.viewPager.getCurrentItem();
+        introBinding.textViewNext.setTextColor(Color.WHITE);
+        introBinding.imageViewNextIcon.setImageResource(R.drawable.icon_next_white);
+        introBinding.imageViewBigBox.setImageResource(R.drawable.blck);
 
         introBinding.textViewNext.setOnClickListener(view -> { nextSplash();  });
         introBinding.imageViewNextIcon.setOnClickListener(view -> { nextSplash(); });
+        introBinding.imageViewBigBox.setOnClickListener(view -> { nextSplash(); });
 
         introBinding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -60,10 +64,12 @@ public class IntroActivity extends FragmentActivity  {
                 if (position == 1){
                     introBinding.textViewNext.setTextColor(Color.BLACK);
                     introBinding.imageViewNextIcon.setImageResource(R.drawable.icon_next_black);
+                    introBinding.imageViewBigBox.setImageResource(R.drawable.grn);
                 }
                 else{
                     introBinding.textViewNext.setTextColor(Color.WHITE);
                     introBinding.imageViewNextIcon.setImageResource(R.drawable.icon_next_white);
+                    introBinding.imageViewBigBox.setImageResource(R.drawable.blck);
                 }
             }
 

@@ -53,10 +53,10 @@ public class IntroViewPagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(mContext).inflate(R.layout.layout_screen,null);
 
         ImageView imageViewIntro = view.findViewById(R.id.imageViewIntro);
-        ImageView imageViewNextColor = view.findViewById(R.id.imageViewNextColor);
+        //ImageView imageViewNextColor = view.findViewById(R.id.imageViewNextColor);
 
         imageViewIntro.setImageResource(screenItemList.get(position).getImageIntro());
-        imageViewNextColor.setImageResource(screenItemList.get(position).getImageButtonNext());
+        //imageViewNextColor.setImageResource(screenItemList.get(position).getImageButtonNext());
 
         container.addView(view);
 
