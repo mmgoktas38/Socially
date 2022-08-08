@@ -1,5 +1,6 @@
 # Socially
 
+
 ## Project Information
 
 - This is a social media app example.
@@ -33,7 +34,7 @@
 
 ---
 
-<img src="https://user-images.githubusercontent.com/43945614/180618229-518a3459-b5fe-4b59-aba9-1385169c9934.png" alt="Android_logo" width="75" height="75">
+<img src="screen_shots/S.png" alt="splash_screen" width="75" height="75">
 
 ### Screenshots
 
